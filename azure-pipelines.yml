@@ -2,10 +2,17 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-- script: |
-    echo "Contents of root directory:"
-    ls -la
-  displayName: 'List directory contents'
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- script: dotnet build --configuration Release
+  displayName: 'Build Application'
+
+- script: dotnet test
+  displayName: 'Run Tests'
