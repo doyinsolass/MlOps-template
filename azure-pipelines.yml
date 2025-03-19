@@ -8,10 +8,4 @@ steps:
 - script: |
     echo "Contents of root directory:"
     ls -la
-    echo "Contents of test directory:"
-    ls -la test
-    echo "Contents of Pipelines directory:"
-    ls -la test/Pipelines
-    echo "Contents of doyinsolass.pipeline_template1 directory:"
-    ls -la test/Pipelines/doyinsolass.pipeline_template1
   displayName: 'List directory contents'
